@@ -1,0 +1,15 @@
+# Solo se versiona la config portable; todo lo demas (credenciales, sesiones, cache) queda fuera
+*
+!.gitignore
+!README.md
+!settings.json
+!CLAUDE.md
+!skills/
+!skills/**
+!agents/
+!agents/**
+!commands/
+!commands/**
+
+!hooks/
+!hooks/**

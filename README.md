@@ -47,6 +47,39 @@ Las de terceros se instalan igual, con su repo: `npx skills add <owner>/<repo>` 
 
 También uso un set de skills para YouTube (`yt-plan`, `yt-script`, `yt-shorts`, `yt-seo`…) cuyo origen no tengo identificado, así que no lo enlazo.
 
+## Mi configuración de Claude Code
+
+En [`config/`](config/) está mi configuración base, sin rutas ni datos personales:
+
+| Archivo | Qué es | Dónde va |
+|---|---|---|
+| [settings.example.json](config/settings.example.json) | Plugins activos, marketplaces, hooks y permisos | `~/.claude/settings.json` |
+| [CLAUDE.md](config/CLAUDE.md) | Instrucciones globales (CodeGraph y graphify) | `~/.claude/CLAUDE.md` |
+| [hooks/donde-quede.js](config/hooks/donde-quede.js) | Al abrir sesión, resume rama, cambios y últimos commits ("¿Dónde quedé?") | `~/.claude/hooks/` |
+| [hooks/respaldo-config.js](config/hooks/respaldo-config.js) | Al cerrar sesión, respalda `~/.claude` en tu propio repo git (en segundo plano) | `~/.claude/hooks/` |
+| [claude-gitignore](config/claude-gitignore) | `.gitignore` para versionar solo la config portable de `~/.claude` (nunca credenciales ni sesiones) | `~/.claude/.gitignore` |
+
+### Plugins que uso
+
+| Marketplace | Plugins |
+|---|---|
+| [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official) | superpowers, security-guidance, context7, playwright, github, figma, vercel |
+| [openai/codex-plugin-cc](https://github.com/openai/codex-plugin-cc) | codex |
+| [AccessLint/skills](https://github.com/AccessLint/skills) | accesslint |
+| [browserbase/skills](https://github.com/browserbase/skills) | browse, functions, browser-trace, safe-browser, webmcp-gen, add-webmcp |
+| [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | hyperframes |
+| [scasella/claude-flightdeck](https://github.com/scasella/claude-flightdeck) | flightdeck |
+| [hamzafer/claude-code-mods](https://github.com/hamzafer/claude-code-mods) | md-preview |
+
+Además uso las skills de Matt Pocock como plugin local (no van en el ejemplo porque dependen de una carpeta de mi PC).
+
+### Instalar
+
+1. Copia los archivos a `~/.claude/` (renombra `settings.example.json` a `settings.json`; si ya tienes uno, fusiónalos a mano).
+2. Los hooks necesitan Node.js. El de CodeGraph (`codegraph.cmd prompt-hook`) necesita CodeGraph instalado; si no lo usas, quita ese bloque y el permiso `mcp__codegraph__*`.
+3. `respaldo-config.js` solo sirve si `~/.claude` es un repo git con remoto **privado** propio; si no, quita el hook `SessionEnd`.
+4. Reabre Claude Code: instalará los plugins de `enabledPlugins`.
+
 ## Licencia
 
-Las skills de `skills/` son MIT (ver [LICENSE](LICENSE)). Las de terceros conservan la licencia de su repositorio.
+Las skills de `skills/` y la configuración de `config/` son MIT (ver [LICENSE](LICENSE)). Las de terceros conservan la licencia de su repositorio.
