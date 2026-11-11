@@ -44,6 +44,7 @@ Las de terceros se instalan igual, con su repo: `npx skills add <owner>/<repo>` 
 | [alchaincyf/huashu-design](https://github.com/alchaincyf/huashu-design) | MIT | huashu-design |
 | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | Apache-2.0 | graphify |
 | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | MIT | agent-reach |
+| [Manavarya09/design-extract](https://github.com/Manavarya09/design-extract) | MIT | extract-design |
 
 También uso un set de skills para YouTube (`yt-plan`, `yt-script`, `yt-shorts`, `yt-seo`…) cuyo origen no tengo identificado, así que no lo enlazo.
 
